@@ -13,7 +13,8 @@ services:
       - REDIS_PORT=${REDIS_PORT}
     volumes:
       - .:/app
-      - ./googleServiceAccount.json:/app/googleServiceAccount.json
+      - /app/dist
+      - /app/node_modules
     depends_on:
       - postgres
       - redis
