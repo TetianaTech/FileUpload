@@ -1,6 +1,6 @@
 # 📁 Bulk File Upload API
 
-This project provides a backend service for handling bulk file uploads using Docker, PostgreSQL, and Redis.
+Backend service for handling bulk file uploads using Nest.js, BullMQ, Drizzle ORM, PostgreSQL, and Docker.
 
 ## 🚀 Getting Started
 
