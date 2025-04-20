@@ -4,9 +4,9 @@ import { Queue } from 'bullmq';
 import { UploadRepository } from './upload.repository';
 import { File } from './entities/file.entity';
 import { getFileName } from 'src/core/utils/getFileName';
-import { CreateFileDTO } from './types/upload.types';
+import { CreateFilePayload } from './types/upload.types';
 import { UploadStatuses } from './types/upload.types';
-import { uploadConfigs } from 'src/core/configs/upload.configs';
+import { uploadConfigs } from 'src/modules/upload/upload.configs';
 
 @Injectable()
 export class UploadService {
@@ -23,7 +23,7 @@ export class UploadService {
   }
 
   async enqueueFileUrls(urls: string[]) {
-    const files: CreateFileDTO[] = urls.map((url) => ({
+    const files: CreateFilePayload[] = urls.map((url) => ({
       url,
       fileName: getFileName(url),
       status: UploadStatuses.PENDING,

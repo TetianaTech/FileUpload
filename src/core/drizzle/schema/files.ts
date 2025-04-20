@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp, pgEnum } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, pgEnum } from 'drizzle-orm/pg-core';
 import { UploadStatuses } from 'src/modules/upload/types/upload.types';
 
 export const statusEnum = pgEnum('statuses', Object.values(UploadStatuses) as [string, ...string[]]);

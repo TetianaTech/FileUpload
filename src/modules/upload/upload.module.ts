@@ -6,7 +6,7 @@ import { GoogleDriveModule } from '../googleDrive/googleDrive.module';
 import { DownloadModule } from '../download/download.module';
 import { UploadRepository } from './upload.repository';
 import { UploadProcessor } from './upload.processor';
-import { uploadConfigs } from 'src/core/configs/upload.configs';
+import { uploadConfigs } from 'src/modules/upload/upload.configs';
 
 @Module({
   imports: [

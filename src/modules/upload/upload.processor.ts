@@ -1,13 +1,12 @@
-import * as os from 'os';
 import { Job } from "bullmq";
 import { Logger } from "@nestjs/common";
 import { OnQueueFailed, Process, Processor } from "@nestjs/bull";
 import { GoogleDriveService } from "../googleDrive/googleDrive.service";
 import { DownloadService } from "../download/download.service";
 import { getFileName } from "src/core/utils/getFileName";
-import { UploadJobDTO, UploadStatuses } from "./types/upload.types";
+import { UploadJobPayload, UploadStatuses } from "./types/upload.types";
 import { UploadRepository } from "./upload.repository";
-import { uploadConfigs } from 'src/core/configs/upload.configs';
+import { uploadConfigs } from 'src/modules/upload/upload.configs';
 
 @Processor(uploadConfigs.queueName)
 export class UploadProcessor {
@@ -20,7 +19,7 @@ export class UploadProcessor {
   ) {}
 
   @Process({ name: uploadConfigs.jobName, concurrency: uploadConfigs.concurrency })
-  async handleUpload(job: Job<UploadJobDTO>) {
+  async handleUpload(job: Job<UploadJobPayload>) {
       const { url, id } = job.data;
       const { mimeType, fileBuffer } = await this.downloadService.downloadFile(url);
       const fileName = getFileName(url);      

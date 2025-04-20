@@ -1,8 +1,6 @@
-# 📁 File Upload API
+# 📁 Bulk File Upload API
 
-This project provides a backend service for handling file uploads using Docker, PostgreSQL, and Redis.
-
----
+This project provides a backend service for handling bulk file uploads using Docker, PostgreSQL, and Redis.
 
 ## 🚀 Getting Started
 
@@ -28,7 +26,7 @@ REDIS_PORT=6379
 docker-compose up --build
 ```
 
-### 4. Run Migrations inside api container
+### 4. Run Migrations inside api container (should be integrated to CI/CD pipeline)
 
 ```bash
 npm run generate
